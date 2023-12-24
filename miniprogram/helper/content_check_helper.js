@@ -1,7 +1,7 @@
  /**
  * Notes: UGC内容校验
  * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux@qq.com
- * Date: 2020-11-14 07:48:00 
+ * Date: 2023-11-14 07:48:00 
  */
 
 const cloudHelper = require('../helper/cloud_helper.js');
