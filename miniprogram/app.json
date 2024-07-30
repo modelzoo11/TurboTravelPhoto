@@ -1,0 +1,126 @@
+{
+	"pages": [
+		"projects/worktravel/pages/default/index/default_index",
+		"projects/worktravel/pages/about/list/about_list",
+		"projects/worktravel/pages/about/index/about_index",
+		"projects/worktravel/pages/search/search",
+		"projects/worktravel/pages/my/index/my_index",
+		"projects/worktravel/pages/my/reg/my_reg",
+		"projects/worktravel/pages/my/edit/my_edit",
+		"projects/worktravel/pages/my/foot/my_foot",
+		"projects/worktravel/pages/my/fav/my_fav",
+		"projects/worktravel/pages/news/index/news_index",
+		"projects/worktravel/pages/news/detail/news_detail",
+		"projects/worktravel/pages/news/cate1/news_cate1",
+		"projects/worktravel/pages/news/cate2/news_cate2",
+		"projects/worktravel/pages/admin/news/list/admin_news_list",
+		"projects/worktravel/pages/admin/news/add/admin_news_add",
+		"projects/worktravel/pages/admin/news/edit/admin_news_edit",
+		"projects/worktravel/pages/admin/setup/about/admin_setup_about",
+		"projects/worktravel/pages/admin/setup/about_list/admin_setup_about_list",
+		"projects/worktravel/pages/admin/setup/qr/admin_setup_qr",
+		"projects/worktravel/pages/admin/index/home/admin_home",
+		"projects/worktravel/pages/admin/index/login/admin_login",
+		"projects/worktravel/pages/admin/content/admin_content",
+		"projects/worktravel/pages/admin/mgr/log/admin_log_list",
+		"projects/worktravel/pages/admin/mgr/edit/admin_mgr_edit",
+		"projects/worktravel/pages/admin/mgr/list/admin_mgr_list",
+		"projects/worktravel/pages/admin/mgr/add/admin_mgr_add",
+		"projects/worktravel/pages/admin/mgr/pwd/admin_mgr_pwd",
+		"projects/worktravel/pages/admin/user/list/admin_user_list",
+		"projects/worktravel/pages/admin/user/detail/admin_user_detail",
+		"projects/worktravel/pages/admin/user/export/admin_user_export",
+		"projects/worktravel/pages/meet/index/meet_index",
+		"projects/worktravel/pages/meet/calendar/meet_calendar",
+		"projects/worktravel/pages/meet/join/meet_join",
+		"projects/worktravel/pages/meet/detail/meet_detail",
+		"projects/worktravel/pages/meet/content/meet_content",
+		"projects/worktravel/pages/meet/my_join_list/meet_my_join_list",
+		"projects/worktravel/pages/meet/my_join_detail/meet_my_join_detail",
+		"projects/worktravel/pages/admin/meet/add/admin_meet_add",
+		"projects/worktravel/pages/admin/meet/edit/admin_meet_edit",
+		"projects/worktravel/pages/admin/meet/export/admin_join_export",
+		"projects/worktravel/pages/admin/meet/join/admin_meet_join",
+		"projects/worktravel/pages/admin/meet/list/admin_meet_list",
+		"projects/worktravel/pages/admin/meet/record/admin_meet_record",
+		"projects/worktravel/pages/admin/meet/scan/admin_meet_scan",
+		"projects/worktravel/pages/admin/meet/temp/admin_meet_temp",
+		"projects/worktravel/pages/admin/meet/time/admin_meet_time",
+		"projects/worktravel/pages/admin/meet/item/admin_meet_item",
+		"projects/worktravel/pages/admin/meet/flow/admin_meet_flow",
+		"projects/worktravel/pages/product/detail/product_detail",
+		"projects/worktravel/pages/product/index/product_index",
+		"projects/worktravel/pages/admin/product/list/admin_product_list",
+		"projects/worktravel/pages/admin/product/add/admin_product_add",
+		"projects/worktravel/pages/admin/product/edit/admin_product_edit",
+		"projects/worktravel/pages/work/index/home/work_home",
+		"projects/worktravel/pages/work/index/login/work_login",
+		"projects/worktravel/pages/work/index/pwd/work_pwd",
+		"projects/worktravel/pages/work/meet/edit/work_meet_edit",
+		"projects/worktravel/pages/work/meet/time/work_meet_time",
+		"projects/worktravel/pages/work/meet/temp/work_meet_temp",
+		"projects/worktravel/pages/work/meet/record/work_meet_record",
+		"projects/worktravel/pages/work/meet/join/work_meet_join",
+		"projects/worktravel/pages/work/meet/scan/work_meet_scan",
+		"projects/worktravel/pages/work/meet/item/work_meet_item",
+		"cmpts/public/form/form_set/field/form_set_field",
+		"cmpts/public/form/form_show/content/form_show_content",
+		"pages/test1/test1"
+	],
+	"window": {
+		"backgroundColor": "#f1f1f1",
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#0AB8B4",
+		"navigationBarTitleText": "旅拍店小程序",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"custom": false,
+		"backgroundColor": "#FFFFFF",
+		"color": "#999999",
+		"selectedColor": "#0AB8B4",
+		"list": [
+			{
+				"pagePath": "projects/worktravel/pages/default/index/default_index",
+				"text": "首页",
+				"iconPath": "/projects/worktravel/images/tabbar/home.png",
+				"selectedIconPath": "/projects/worktravel/images/tabbar/home_cur.png"
+			},
+			{
+				"pagePath": "projects/worktravel/pages/news/index/news_index",
+				"text": "小店动态",
+				"iconPath": "/projects/worktravel/images/tabbar/news.png",
+				"selectedIconPath": "/projects/worktravel/images/tabbar/news_cur.png"
+			},
+			{
+				"pagePath": "projects/worktravel/pages/product/index/product_index",
+				"text": "样片",
+				"iconPath": "/projects/worktravel/images/tabbar/cate2.png",
+				"selectedIconPath": "/projects/worktravel/images/tabbar/cate2_cur.png"
+			},
+			{
+				"pagePath": "projects/worktravel/pages/meet/calendar/meet_calendar",
+				"text": "预约日历",
+				"iconPath": "/projects/worktravel/images/tabbar/day.png",
+				"selectedIconPath": "/projects/worktravel/images/tabbar/day_cur.png"
+			},
+			{
+				"pagePath": "projects/worktravel/pages/my/index/my_index",
+				"text": "我的",
+				"iconPath": "/projects/worktravel/images/tabbar/my.png",
+				"selectedIconPath": "/projects/worktravel/images/tabbar/my_cur.png"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+		}
+	},
+	"usingComponents": {
+		"cmpt-comm-list": "/cmpts/public/list/comm_list_cmpt",
+		"cmpt-picker": "/cmpts/public/picker/picker_cmpt",
+		"cmpt-modal": "/cmpts/public/modal/modal_cmpt"
+	},
+	"sitemapLocation": "sitemap.json"
+}

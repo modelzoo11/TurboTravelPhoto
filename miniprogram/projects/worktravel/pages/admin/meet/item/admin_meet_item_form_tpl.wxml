@@ -1,0 +1,52 @@
+<view class="main-{{oprt}}">
+
+
+	<view class="form-area">
+		<!--套餐设置begin-->
+		<block wx:for="{{formItemList}}" wx:key="key">
+			<view class="form-box shadow" id="item_{{index}}">
+				<view class="form-group" style="width:100%;justify-content: space-between;">
+					<view style="width: 100rpx;" class="text-grey">#套餐{{index+1}}</view>
+					<view style="flex:1;font-size: 28rpx;text-align: right;opacity: .9;" bindtap="bindDelItemTap" data-idx="{{index}}" class="icon-delete margin-left-xs text-red;"><text class="text-s ">删除</text></view>
+				</view>
+				<view class="form-group">
+					<text class="title must">套餐名称</text><input bindinput='bindItemBlur' bindblur='bindItemBlur' type="text" class="ipt1" data-idx="{{index}}" data-name="name" placeholder="请填写名称" placeholder-class="phc" value="{{item.name}}"></input>
+				</view>
+				<view class="form-group">
+					<text class="title must">价格<text class="text-grey text-normal margin-left-xs">(元)</text></text><input bindinput='bindItemBlur' bindblur='bindItemBlur' type="number" maxlength="10" class="ipt1" data-idx="{{index}}" data-name="price" placeholder="请填写价格" placeholder-class="phc" value="{{item.price}}"></input>
+				</view> 
+
+				<view class="form-group" id="form{{item.mark}}">
+					<view class="action text-bold text-l"><text class="text-red">*</text>套餐内容说明
+					</view>
+				</view>
+				<view class="form-group">
+					<textarea bindinput='bindItemBlur' bindblur='bindItemBlur' style="min-height:100rpx" auto-height="true" maxlength="600" class="ipt1" data-idx="{{index}}" data-name="desc" placeholder="请填写套餐内容说明" placeholder-class="phc" value="{{item.desc}}"></textarea>
+				</view>
+
+
+				<view wx:if="{{item.focus}}" class="hint-desc error">{{item.focus}}</view>
+
+			</view>
+		</block>
+
+		<view class="form-group" bindtap="bindAddItemTap">
+			<view class="title text-blue" style="font-weight:normal;font-size:30rpx;"> <text class="icon-roundaddfill margin-right-xs" style="font-size:40rpx;"></text>添加新套餐
+			</view>
+
+		</view>
+
+
+		<!--套餐设置END-->
+	</view>
+	<view style="height: 200rpx;"></view>
+</view>
+
+<!-- top begin -->
+<button wx:if="{{topShow}}" class="btn-fixed bg-gray text-gray btn-top" bindtap="bindTopTap" style="bottom:160rpx"><text class="icon-top"></text></button>
+<!-- top END. -->
+
+<view class="btn-bottom-{{oprt}}">
+	<view bindtap="url" data-type="back" class="return">不保存,返回</view>
+	<view bindtap="bindSaveTap" class="save">保存套餐设置</view>
+</view>

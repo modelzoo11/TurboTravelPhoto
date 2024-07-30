@@ -1,0 +1,128 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l load-project" style="margin-top:200rpx;"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project" style="margin-top:200rpx"></view>
+<block wx:if="{{isLoad}}">
+	<cmpt-custom-nav url="../index/meet_index" style="position: fixed;top:0;width:100%;z-index: 999999999;"></cmpt-custom-nav>
+	<view class="main">
+		<view class="meet-title">
+			<view class="bg"></view>
+			<view class="bg-img" style="background-image: url('{{meet.cover}}');" />
+			<view class="info">
+				<view class="left">
+					<view class="line1 ">{{meet.MEET_TITLE}}</view>
+					<view class="tag-list">  
+						<text wx:for="{{meet.MEET_OBJ.tag}}" wx:key="k1" class="tag">{{item.title}}</text> 
+					</view>
+				 
+				</view>
+				<view class="right" wx:if="{{meet.MEET_CATE_ID=='1'}}">
+					<image  mode="aspectFill" class="loading" src="{{meet.MEET_OBJ.cover[0]}}" />  
+				</view>
+			</view>
+			<view class="stat">
+				<view class="left">
+				</view>
+				<view class="right">
+					<cmpt-detail class="oprt" mode="btn" oid="{{id}}" cate="{{meet.MEET_CATE_NAME}}" title="{{meet.MEET_TITLE}}" cover="{{meet.MEET_OBJ.cover[0]}}" qr="{{meet.MEET_QR}}" bg="{{skin.PROJECT_COLOR}}">
+					</cmpt-detail>
+				</view>
+			</view>
+		</view>
+
+		<view class="down">
+			<view class="meet-tab">
+				<view bindtap="bindTabTap" data-cur="time" class="item {{cur=='time'?'cur':''}}">时段</view>
+				<view bindtap="bindTabTap" data-cur="detail" class="item {{cur=='detail'?'cur':''}}">详情</view>
+			 
+			</view>
+
+			<view wx:if="{{cur=='detail'}}" class="article-box">
+				<view class="article" wx:if="{{meet.MEET_OBJ.content && meet.MEET_OBJ.content.length>0}}">
+					<block wx:for="{{meet.MEET_OBJ.content}}" wx:key="key">
+						<view class="content" wx:if="{{item.type=='text'}}">
+							<text user-select="{{true}}">{{item.val}}</text>
+						</view>
+
+						<view class="pics" wx:if="{{item.type=='img'}}">
+							<image bindtap="url" data-type='img' data-url="{{item.val}}" show-menu-by-longpress="{{true}}" class="loading" mode='widthFix' lazy-load="true" src="{{item.val}}">
+							</image>
+						</view>
+					</block>
+				</view>
+			</view>
+
+			<block wx:if="{{cur=='time'}}">
+				<block wx:if="{{days.length>0}}">
+					<scroll-view scroll-x class="date" enable-flex="{{true}}">
+						<view bindtap="bindDayTap" data-idx="{{index}}" class="date-inner" wx:for="{{days}}" wx:key="key" wx:for-index="index">
+							<view class="item {{dayIdx==index?'cur':''}}">
+
+								<text wx:if="{{dayIdx==index&&item.status!='今天'}}" class="status cur"><text class="icon-check"></text></text>
+								<text wx:else class="status {{item.status=='今天'?'bg-red':''}}">{{item.status||'可约'}}</text>
+
+								<text class="week">{{item.week}}</text>
+								<text class="day">{{item.date}}</text>
+							</view>
+						</view>
+					</scroll-view>
+
+					<view class="time-title">请选择套餐</view>
+					<view class="package">
+						<view bind:tap="bindPackageTap" data-idx="{{index}}" class="item {{index==packageIdx&&'cur'}}" wx:for="{{meet.MEET_ITEM_LIST}}" wx:key="k">
+							<text wx:if="{{index==packageIdx}}" class="status"><text class="icon-check"></text></text>
+							<view class="title text-bold text-darkgreen">{{item.name}}</view>
+							<view class="line"><text class="text-darkgreen">套餐价格：</text><text class="text-red">¥{{item.price}}</text></view> 
+							<view class="line"><text class="text-darkgreen">套餐说明：</text>{{item.desc}}</view>
+						</view>
+
+					</view>
+
+					<view class="time-title">请选择时段</view>
+					<view class="time">
+						<view bindtap="bindTimeTap" data-timeidx="{{idx}}" wx:for="{{days[dayIdx].times}}" wx:key="k1" wx:for-item="itm" wx:for-index="idx" class="item {{(timeIdx==idx)?'cur':''}} {{itm.error?'selected':''}}">
+							<block wx:if="{{!itm.error}}">
+								<text wx:if="{{timeIdx!=idx}}" class="status">可约</text>
+								<text wx:else class="status"><text class="icon-check"></text></text>
+							</block>
+
+							<text class="t1">{{index}}{{itm.start}}~{{itm.end}}</text>
+							<text wx:if="{{!itm.error&&itm.isLimit&&itm.limit>1}}" class="t3">剩余:{{itm.limit-itm.stat.succCnt}}</text>
+							<text wx:if="{{!itm.error&&!itm.isLimit}}" class="t3">人数不限</text>
+							<text wx:if="{{itm.error}}" class="t3">{{itm.error}}</text>
+						</view>
+					</view>
+					<View style="height: 250rpx;"></View>
+				</block>
+				<view wx:elif="{{days.length==0}}" class="margin-top load notexist text-l load-project day-load"></view>
+				<view wx:else class="margin-top load loading text-l load-project"></view>
+			</block>
+
+			<block wx:if="{{cur=='album'}}">
+				<view class="album-list">
+					<view class="item" wx:for="{{meet.MEET_OBJ.album}}" wx:key="k" bindtap="url" data-url="../content/meet_content?idx={{index}}">
+						<text class="text-cut">{{item.title}}</text>
+						<image class="loading" src="{{item.pic}}" mode="aspectFill" lazy-load="{{true}}" />
+					</view>
+				</view>
+
+				<view style="height:200rpx"></view>
+			</block>
+		</view>
+
+	</view>
+
+	<view wx:if="{{days.length>0}}" class="bottom safe-bottom">
+		<view class="inner">
+			<view class="line2">
+				<view wx:if="{{timeIdx>-1}}" class="left text-project">{{days[dayIdx].day+' '+ days[dayIdx].times[timeIdx].start+'~'+days[dayIdx].times[timeIdx].end}}</view>
+				<view wx:else class="left text-project">未选定预约时段</view>
+				<view bindtap="bindJoinTap" class="right bg-grey light">
+					<text class="price" wx:if="{{meet.MEET_ITEM_LIST[packageIdx].price>0}}">¥{{meet.MEET_ITEM_LIST[packageIdx].price}}元</text>
+					<text class="text-darkgreen">去预约</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+
+</block>

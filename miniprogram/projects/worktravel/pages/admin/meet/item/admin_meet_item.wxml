@@ -1,0 +1,6 @@
+ 
+
+<block wx:if="{{isAdmin}}">
+	<include src="../../../admin/meet/item/admin_meet_item_form_tpl.wxml" />
+
+</block>
